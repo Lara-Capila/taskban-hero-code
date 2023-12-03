@@ -22,6 +22,11 @@ const config: Config = {
 				k2D: ["var(--k2D)"],
 				libreFranklin: ["var(--libre-franklin)"],
 			},
+			boxShadow: {
+				default: "0px 4px 10px rgba(0, 0, 0, 0.10)",
+				sidebar: "4px 0px 30px 10px rgba(0, 0, 0, 0.05)",
+				card: "0px 10px 10px rgba(0, 0, 0, 0.05)",
+			},
 		},
 	},
 	plugins: [],
