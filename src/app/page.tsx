@@ -1,6 +1,31 @@
-import ContainerCard from "./components/ContainerCard";
+"use client";
+
+import { useEffect } from "react";
+import ContainerCard from "../components/ContainerCard";
+import { useTasks } from "../contexts/tasks";
+import { useModal } from "../hooks/useModal";
 
 export default function Home() {
+	const { tasks, setTasks } = useTasks();
+	const { isModalOpen, toggleModal } = useModal();
+
+	useEffect(() => {
+		const getTasks = async () => {
+			const response = await fetch(
+				`${process.env.NEXT_PUBLIC_PATH_URL_BACKEND}/api/taskban`
+			);
+
+			const allTasks = await response.json();
+
+			if (!allTasks) return;
+
+			setTasks(allTasks);
+		};
+
+		getTasks();
+	}, []);
+
+	console.log(tasks);
 	return (
 		<section className="flex items-center">
 			<ContainerCard />

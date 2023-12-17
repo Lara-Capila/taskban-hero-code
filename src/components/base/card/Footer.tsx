@@ -1,9 +1,9 @@
-import Time from "../../icons/Time.icon";
-import { Priority } from "../../types/card.types";
+import Time from "../../../icons/Time.icon";
+import { Priority } from "../../../types/card.types";
 import {
 	getBorderColorByPriority,
 	getTextColorByPriority,
-} from "../../utils/card.utils";
+} from "../../../utils/card.utils";
 
 const Footer = ({
 	expirationDate,

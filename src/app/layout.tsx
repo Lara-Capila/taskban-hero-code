@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { K2D, Libre_Franklin } from "next/font/google";
-import Header from "./components/Header";
-import SideBar from "./components/SideBar";
+import Header from "../components/Header";
+import SideBar from "../components/SideBar";
+import { TasksProvider } from "../contexts/tasks";
 import "./globals.css";
 
 const libreFranklin = Libre_Franklin({
@@ -34,13 +35,15 @@ export default function RootLayout({
 			<body>
 				<div className="dark:bg-boxdark-2 dark:text-bodydark">
 					<div className="flex h-screen overflow-hidden">
-						<SideBar />
-						<div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
-							<Header />
-							<main className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
-								{children}
-							</main>
-						</div>
+						<TasksProvider>
+							<SideBar />
+							<div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
+								<Header />
+								<main className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+									{children}
+								</main>
+							</div>
+						</TasksProvider>
 					</div>
 				</div>
 			</body>
