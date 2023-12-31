@@ -1,4 +1,5 @@
-import { Task } from "../types/card.types";
+import { Task } from "../@types/card";
+import { generateRandomId } from "../utils/functions.utils";
 
 let tasks: Task[] = [];
 
@@ -6,11 +7,13 @@ export const getTasks = (): Task[] => {
 	return tasks;
 };
 
-export const addTasks = (task: Task): number => {
-	const generateId = tasks.length + 1;
+export const addTasks = async (task: Task): Promise<string> => {
+	const id = generateRandomId();
 
-	task.id = generateId;
+	task.id = id;
 	tasks.push(task);
 
-	return generateId;
+	console.log(tasks);
+
+	return id;
 };

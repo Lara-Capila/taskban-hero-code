@@ -1,4 +1,4 @@
-import { Priority } from "../types/card.types";
+import { Priority } from "../@types/card";
 
 const priorityToTextColorMapping: Record<Priority, string> = {
 	high: "text-high-priority",

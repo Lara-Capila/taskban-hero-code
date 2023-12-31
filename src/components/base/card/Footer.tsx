@@ -1,15 +1,15 @@
+import { Priority } from "../../../@types/card";
 import Time from "../../../icons/Time.icon";
-import { Priority } from "../../../types/card.types";
 import {
 	getBorderColorByPriority,
 	getTextColorByPriority,
-} from "../../../utils/card.utils";
+} from "../../../utils/priority.utils";
 
 const Footer = ({
 	expirationDate,
 	priority,
 }: {
-	expirationDate: string;
+	expirationDate: Date;
 	priority: Priority;
 }) => {
 	const isHighPriority = priority === "high";
@@ -26,12 +26,11 @@ const Footer = ({
 	return (
 		<div className="flex items-center justify-between text-xs">
 			<div
-				className={`flex items-center gap-2 ${
-					isHighPriority ? textcolorByPriority : ""
-				}`}
+				className={`flex items-center gap-2 ${isHighPriority ? textcolorByPriority : ""
+					}`}
 			>
 				<Time />
-				{expirationDate}
+				{expirationDate.toDateString()}
 			</div>
 
 			{isHighPriority ? (

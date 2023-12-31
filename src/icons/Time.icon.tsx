@@ -1,4 +1,4 @@
-import { IconProps } from "../types/icons.types";
+import { IconProps } from "../@types/icons";
 
 export default function Time({ className, ...rest }: IconProps) {
 	return (

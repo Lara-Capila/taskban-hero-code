@@ -1,9 +1,9 @@
 export type Priority = "high" | "medium" | "low";
 
 export type Task = {
-	id?: number;
+	id?: string;
 	title: string;
 	description: string;
-	expirationDate: string;
-	priority: Priority;
+	expirationDate: Date | null;
+	priority: Priority | null;
 };

@@ -6,7 +6,7 @@ interface ActionsProps extends HTMLAttributes<HTMLDivElement> {
 
 const Content = ({ children, ...rest }: ActionsProps) => {
 	return (
-		<div className="py-10 flex flex-col gap-6" {...rest}>
+		<div style={{ padding: '40px 0px' }} {...rest} >
 			{children}
 		</div>
 	);

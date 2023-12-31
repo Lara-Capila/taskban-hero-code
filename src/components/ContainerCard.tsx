@@ -1,8 +1,8 @@
 import ContainerCardTitle from "./ContainerCardTitle";
 
-export type Status = "toDo" | "doing" | "QA" | "done";
+export type BoardStatus = "toDo" | "doing" | "QA" | "done";
 
-const statusTypes: Status[] = ["toDo", "doing", "QA", "done"];
+const statusTypes: BoardStatus[] = ["toDo", "doing", "QA", "done"];
 
 const ContainerCard = () => {
 	return (

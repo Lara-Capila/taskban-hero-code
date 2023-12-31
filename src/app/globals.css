@@ -12,21 +12,30 @@ body {
 	background-color: rgb(var(--background-start-rgb));
 }
 
-/* input:focus ~ label,
-input:not(:placeholder-shown) ~ label,
-textarea:focus ~ label,
-textarea:not(:placeholder-shown) ~ label,
-select:focus ~ label,
-select:not([value=""]):valid ~ label {
-	@apply transform;
-	@apply scale-75;
-	@apply -translate-y-6;
-	@apply bg-white;
-	@apply ml-0;
+.react-datepicker-wrapper {
+	width: 100%;
 }
 
-input:focus ~ label,
-select:focus ~ label {
-	@apply text-black;
-	@apply left-0;
-} */
+.react-datepicker__input-container {
+	display: flex !important;
+	align-items: center !important;
+	flex-direction: row-reverse !important;
+	gap: 25px !important;
+}
+
+.react-datepicker__view-calendar-icon input {
+	padding: 6px 25px 5px 8px !important;
+	height: 40px !important;
+}
+
+.react-datepicker {
+	z-index: 999 !important
+}
+
+.react-datepicker__calendar-icon {
+	fill: #48409E;
+}
+
+.react-datepicker__header {
+	background-color: #48409E;
+}

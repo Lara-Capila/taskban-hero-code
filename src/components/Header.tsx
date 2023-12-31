@@ -1,10 +1,10 @@
 "use client";
 
-import { useModal } from "../hooks/useModal";
-import AddTaskModal from "./AddTask.modal";
+import { useTask } from "../contexts/task";
+
 
 const Header = () => {
-	const { toggleModal, isModalOpen } = useModal();
+	const { toggleModal } = useTask();
 
 	return (
 		<header className="text-gray-600 body-font bg-primary max-h-[90px] p-4 flex justify-end items-center">
@@ -19,8 +19,6 @@ const Header = () => {
 			>
 				+ Novo Card
 			</button>
-
-			<AddTaskModal isModalOpen={isModalOpen} toggleModal={toggleModal} />
 		</header>
 	);
 };
