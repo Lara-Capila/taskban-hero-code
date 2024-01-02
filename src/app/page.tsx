@@ -1,5 +1,7 @@
 "use client";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import AddTaskModal from "../components/AddTask.modal";
 import Task from "../components/Task.card";
 import { useBoard } from "../contexts/board";
@@ -17,6 +19,8 @@ export default function Home() {
 				isModalOpen={isModalOpen}
 				toggleModal={toggleModal}
 			/>
+
+			<ToastContainer />
 		</section>
 	);
 }

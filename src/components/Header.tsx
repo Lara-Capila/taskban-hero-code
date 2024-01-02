@@ -12,12 +12,13 @@ const Header = () => {
 				onClick={toggleModal}
 				className="
           inline-flex items-center bg-secondary 
-          border-0 py-[18px] px-5 
+          border-0 py-2 px-5 hover:scale-110
           focus:outline-none cursor-pointer
-          rounded-[10px] text-base mt-4 md:mt-0 font-medium text-white
+          rounded-[10px] text-base mt-4 md:mt-0
+					text-primary font-semibold tracking-wider
 				"
 			>
-				+ Novo Card
+				Criar
 			</button>
 		</header>
 	);

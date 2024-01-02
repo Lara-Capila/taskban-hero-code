@@ -2,6 +2,7 @@ import { Task } from '../@types/task';
 import { useBoard } from '../contexts/board';
 import { useTask } from '../contexts/task';
 import { generateRandomId } from '../utils/functions.utils';
+import notify from '../utils/notify';
 
 const useModalHandler = () => {
   const { task, setTask, clearTaskData, toggleModal } = useTask();
@@ -20,9 +21,13 @@ const useModalHandler = () => {
 
   const handleSubmit = async () => {
     const { title, priority, description, expirationDate } = task;
+    const { success, error } = notify();
 
     if (!title || !priority || !description || !expirationDate) {
-      return console.log('Todos os campos são obrigatórios!');
+      return error({
+        id: 'error-add-task',
+        content: 'Por favor, preencha todos os campos!'
+      });
     }
 
     const id = generateRandomId();
@@ -46,6 +51,10 @@ const useModalHandler = () => {
 
     clearTaskData();
     toggleModal();
+    success({
+      id: 'add-task',
+      content: 'Item criado com sucesso!'
+    });
   };
 
   const onCloseModal = () => {
