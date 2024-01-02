@@ -15,7 +15,7 @@ const AddTaskModal = ({
 	toggleModal: () => void;
 }) => {
 	const { handleSubmit, handleInputChange, onCloseModal } = useModalHandler();
-	const { task, setTask, clearTaskData } = useTask();
+	const { task } = useTask();
 
 	return (
 		<div>

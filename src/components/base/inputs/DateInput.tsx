@@ -4,7 +4,7 @@ import ptBR from 'date-fns/locale/pt-BR';
 import DatePicker from 'react-datepicker';
 
 import "react-datepicker/dist/react-datepicker.css";
-import { Task } from '../../../@types/card';
+import { Task } from '../../../@types/task';
 import { useTask } from '../../../contexts/task';
 
 interface DateInputProps {

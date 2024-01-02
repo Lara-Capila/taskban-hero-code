@@ -1,8 +1,7 @@
 "use client";
 
 import AddTaskModal from "../components/AddTask.modal";
-import ContainerCard from "../components/ContainerCard";
-import { Card } from "../components/base/card";
+import Task from "../components/Task.card";
 import { useBoard } from "../contexts/board";
 import { useTask } from "../contexts/task";
 
@@ -12,17 +11,12 @@ export default function Home() {
 
 	return (
 		<section className="flex items-center">
-			<ContainerCard />
+			<Task boardData={boardData} />
 
-			{Object.values(boardData).map((item) => item.map((item1) => (
-				<Card.Container key={item1.id}>
-					<Card.Title title={item1.title} />
-					<Card.Description description={item1.description} />
-					<Card.Footer expirationDate={item1.expirationDate!} priority={item1.priority!} />
-				</Card.Container>
-			)))}
-
-			<AddTaskModal isModalOpen={isModalOpen} toggleModal={toggleModal} />
+			<AddTaskModal
+				isModalOpen={isModalOpen}
+				toggleModal={toggleModal}
+			/>
 		</section>
 	);
 }

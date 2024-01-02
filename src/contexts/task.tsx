@@ -8,7 +8,7 @@ import {
 	useContext,
 	useState,
 } from "react";
-import { Task } from "../@types/card";
+import { Task } from "../@types/task";
 
 interface TaskContextProps {
 	task: Task;
@@ -19,7 +19,13 @@ interface TaskContextProps {
 }
 
 const defaultValues: TaskContextProps = {
-	task: { id: undefined, title: '', description: '', expirationDate: null, priority: null },
+	task: {
+		id: undefined,
+		title: '',
+		description: '',
+		expirationDate: null,
+		priority: null,
+	},
 	setTask: (value) => value,
 	clearTaskData: () => { },
 	toggleModal: () => { },
@@ -51,7 +57,7 @@ export const TasksProvider = ({ children }: { children: ReactNode; }) => {
 			title: '',
 			description: '',
 			expirationDate: null,
-			priority: null
+			priority: null,
 		});
 	};
 

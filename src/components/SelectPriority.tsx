@@ -1,4 +1,4 @@
-import { Priority } from '../@types/card';
+import { Priority } from '../@types/task';
 import { useTask } from '../contexts/task';
 import PriorityButton from './base/buttons/Priority.button';
 
@@ -13,8 +13,6 @@ const SelectPriority = () => {
       };
     });
   };
-
-  console.log(task);
 
   return (
     <div className='flex flex-col gap-2'>

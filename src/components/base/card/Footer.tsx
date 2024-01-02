@@ -1,9 +1,11 @@
-import { Priority } from "../../../@types/card";
+import { Priority } from "../../../@types/task";
 import Time from "../../../icons/Time.icon";
+import { formatDateToBrazilianFormat } from "../../../utils/functions.utils";
 import {
 	getBorderColorByPriority,
 	getTextColorByPriority,
 } from "../../../utils/priority.utils";
+import Tooltip from "../Tooltip";
 
 const Footer = ({
 	expirationDate,
@@ -12,36 +14,26 @@ const Footer = ({
 	expirationDate: Date;
 	priority: Priority;
 }) => {
-	const isHighPriority = priority === "high";
 	const defaultClass = "uppercase py-2 px-5 rounded-[20px] border";
 	const textcolorByPriority = getTextColorByPriority(priority);
 	const borderColorByPriority = getBorderColorByPriority(priority);
 
-	const highPriority = (
-		<div className={`${defaultClass} bg-high-priority text-white`}>
-			{priority}
-		</div>
-	);
+	const dateFormatted = formatDateToBrazilianFormat(expirationDate);
+	const currentDate = new Date();
+	const isOverdue = expirationDate ? new Date(expirationDate) <= currentDate : false;
 
 	return (
 		<div className="flex items-center justify-between text-xs">
-			<div
-				className={`flex items-center gap-2 ${isHighPriority ? textcolorByPriority : ""
-					}`}
-			>
-				<Time />
-				{expirationDate.toDateString()}
-			</div>
-
-			{isHighPriority ? (
-				highPriority
-			) : (
-				<div
-					className={`${defaultClass} ${borderColorByPriority} ${textcolorByPriority}`}
-				>
-					{priority}
+			<Tooltip message={isOverdue ? "Está tarefa está atrasada!" : `Data de entrega: ${dateFormatted}`}>
+				<div className={`flex items-center gap-2 ${isOverdue ? "text-high-priority" : "text-inherit"}`}>
+					<Time />
+					<span className="text-sm font-semibold">{dateFormatted}</span>
 				</div>
-			)}
+			</Tooltip>
+
+			<div className={`${defaultClass} ${textcolorByPriority} ${borderColorByPriority}`}>
+				{priority}
+			</div>
 		</div>
 	);
 };

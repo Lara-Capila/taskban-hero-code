@@ -8,10 +8,7 @@ import {
   useContext,
   useState,
 } from "react";
-import { Task } from "../@types/card";
-import { BoardStatus } from "../components/ContainerCard";
-
-type BoardDataByStatus = { [key in BoardStatus]: Task[] };
+import { BoardDataByStatus } from "../@types/board";
 
 interface BoardContextProps {
   boardData: BoardDataByStatus;

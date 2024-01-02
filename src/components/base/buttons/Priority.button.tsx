@@ -1,5 +1,5 @@
 import { ChangeEventHandler } from 'react';
-import { Priority } from '../../../@types/card';
+import { Priority } from '../../../@types/task';
 import { getBorderColorByPriority, getTextColorByPriority } from '../../../utils/priority.utils';
 
 interface PriorityProps {

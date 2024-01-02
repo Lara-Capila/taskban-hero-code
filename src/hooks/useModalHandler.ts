@@ -1,4 +1,4 @@
-import { Task } from '../@types/card';
+import { Task } from '../@types/task';
 import { useBoard } from '../contexts/board';
 import { useTask } from '../contexts/task';
 import { generateRandomId } from '../utils/functions.utils';
@@ -32,7 +32,7 @@ const useModalHandler = () => {
       title,
       description,
       expirationDate,
-      priority
+      priority,
     };
 
     const newToDos = [...boardData.toDo, newTask];
